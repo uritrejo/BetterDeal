@@ -1,5 +1,7 @@
 # BetterDeal
 Repository for Capstone Project
+## Members
+Uri Trejo, Noah Habte
 
 # Overview
 The objective of the software to be built is capturing data of products posted online (to be more specific, cars of certain specs)  and performing price comparison over time.
@@ -15,8 +17,5 @@ The main problem that looks to be solved is the redundancy of tasks such as cont
 # Impact
 Our project is intended to automate a task that is usually done manually in the automotive industry. This is the business that would ideally be benefited.
 
-# Members
-Uri Trejo
 
-Noah Habte
 
