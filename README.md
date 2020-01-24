@@ -11,6 +11,10 @@ The project consists of three main components:
 # Objective
 The main problem that looks to be solved is the redundancy of tasks such as continuously refreshing a webpage manually in order to find new postings. 
 
+
+# Impact Analysis
+Our project is intended to automate a task that is usually done manually in the automotive industry. This is the business that would ideally be benefited.
+
 # Members
 Uri Trejo
 Noah Habte
