@@ -19,4 +19,5 @@ Our project is intended to automate a task that is usually done manually in the 
 
 
 ## Original Proposal
-The original proposal can be found here: https://docs.google.com/document/d/1ykDEXzee2cA5u9ptGj_URdvOaHjXKcl8EJE9WRJHxj8/edit?usp=sharing
+The original proposal can be found here: 
+https://docs.google.com/document/d/1ykDEXzee2cA5u9ptGj_URdvOaHjXKcl8EJE9WRJHxj8/edit?usp=sharing
