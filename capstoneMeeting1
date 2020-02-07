@@ -1,0 +1,13 @@
+Capstone meeting 1, January 17 2020
+
+What the client wants: Cars with specific sets of specifications, and to be alerted when they are on sale
+- No UI: Only functionality
+-Limit data seen by user, only the client/owner should see all the data, sales, amounts, etc.
+-Research into Kijiji scrapers
+-Client provided data is from Wholesale Companies, excel based
+-Important specifications: Year, Specific Model, VIN(order #)-- Client data uses last 6 digits  of the vin, color, mileage
+-If the client plans on selling data, the data must be modified
+
+List of sites to potentially scrape:Kijiji, AutoTrader, Fergus market
+
+WindForce, new startup that is competition to BetterDeal - Allows internationals access to canadian auctions
