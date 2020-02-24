@@ -1,4 +1,4 @@
-from twisted.internet import reactor
+from twisted.internet import reactor, task
 from dataExtraction.dataExtraction.spiders.kijiji_spider import KijijiSpider
 from scrapy.crawler import CrawlerRunner
 
@@ -9,9 +9,12 @@ def run_spider():
     print("run_spider")
 
     runner = CrawlerRunner()
-    deferred = runner.crawl(KijijiSpider)
-    # you can use reactor.callLater or task.deferLater to schedule a function
-    deferred.addCallback(reactor.callLater, 20, run_spider)
+    # deferred = runner.crawl(KijijiSpider) #attempt 1
+    runner.crawl(KijijiSpider)
+
+    # I tried to use reactor.callLater or task.deferLater to schedule a function
+    # deferred.addCallback(reactor.callLater, 5, run_spider) #attempt 1
+    deferred = task.deferLater(reactor, 10, run_spider)
     return deferred
 
 

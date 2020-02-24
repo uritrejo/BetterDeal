@@ -9,7 +9,7 @@ class KijijiSpider(scrapy.Spider):
 
     def parse(self, response):
 
-        car_ad_titles = response.css('.title .title::text').extract()
+        car_ad_titles = response.css('.title .title::text').extract() # gets the car add titles using css selectors
 
         prices = response.css('.price::text').extract()
 
@@ -17,6 +17,8 @@ class KijijiSpider(scrapy.Spider):
 
         for car in car_ad_titles:
             print(car)
+
+        # print(car_ad_titles[2])
 
 
         yield {
