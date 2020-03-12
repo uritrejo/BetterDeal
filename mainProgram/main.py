@@ -12,9 +12,11 @@ def run_spider():
     # deferred = runner.crawl(KijijiSpider) #attempt 1
     runner.crawl(KijijiSpider)
 
-    # I tried to use reactor.callLater or task.deferLater to schedule a function
+    # this didn't work, but it might come in handy later
     # deferred.addCallback(reactor.callLater, 5, run_spider) #attempt 1
+
     deferred = task.deferLater(reactor, 10, run_spider)
+
     return deferred
 
 
