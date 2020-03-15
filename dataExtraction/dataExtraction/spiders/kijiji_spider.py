@@ -1,4 +1,5 @@
 import scrapy
+from notification.notification_manager import *
 
 class KijijiSpider(scrapy.Spider):
 
@@ -16,6 +17,8 @@ class KijijiSpider(scrapy.Spider):
     }
 
     def parse(self, response):
+
+        # sendNotification("")
 
         print("Starting round of collection.")
 
