@@ -2,23 +2,31 @@ from twisted.internet import reactor, task
 from dataExtraction.dataExtraction.spiders.kijiji_spider import KijijiSpider
 from notification.notification_manager import *
 from scrapy.crawler import CrawlerRunner
+import notification.email_config
+import dataExtraction.dataCollector
 
 def run_spider():
 
-    # Run a spider within Twisted every 20 seconds
+    # Run a spider within Twisted every X seconds
 
     print("run_spider")
 
-    sendEmailNotification("Hola como estas")
+    print("Current amount of cars: ", len(dataExtraction.dataCollector.cars))
 
+    # stripped_price = '"$2,500.99"'
+    # stripped_price = stripped_price.strip('"')
+    # stripped_price = stripped_price.replace('$', '')
+    # stripped_price = stripped_price.replace(',', '')
+
+    # print(stripped_price)
+    # print(float(stripped_price) + 23)
 
     runner = CrawlerRunner()
-    # deferred = runner.crawl(KijijiSpider) #attempt 1
     runner.crawl(KijijiSpider)
 
     # this didn't work, but it might come in handy later: deferred.addCallback(reactor.callLater, 5, run_spider) #attempt 1
 
-    deferred = task.deferLater(reactor, 10, run_spider)
+    deferred = task.deferLater(reactor, notification.email_config.TIME_BETWEEN_ROUNDS, run_spider)
 
     return deferred
 
