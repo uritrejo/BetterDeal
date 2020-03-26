@@ -1,5 +1,6 @@
 import csv
 from notification.notification_manager import *
+import config
 
 # This is where the car data is going to be stored
 # We could potentially use a list of lists, each for a given car model
@@ -42,7 +43,7 @@ def processNewData(strippedExtractedCars, strippedExtractedPrices):
                 cars.append(newCar)
                 prices.append(carPrice)
 
-                if (round > notification.email_config.ROUNDS_TO_IGNORE):
+                if (round > config.ROUNDS_TO_IGNORE):
                     sendEmailNotification(newCar, carPrice)
 
     else:  # we have a different number of cars and prices, we can't compare
@@ -78,17 +79,18 @@ def exportDataToCSV():
         appendToCSV = 'w'
 
     try:
-        with open('data.csv', appendToCSV, newline='') as file:
+        with open('data.csv', appendToCSV) as file:
+        # with open('data.csv', appendToCSV, newline='') as file: # This version wouldnt work on linux
             writer = csv.writer(file)
             # we initialize the titles if it is the first to be written
             if ad_index == -1:
-                writer.writerow(["Car Model", "Price"])
+                writer.writerow(["Car Model".encode('utf8'), "Price".encode('utf8')])
                 ad_index += 1
 
             # we write each of the new cars in a row at the end of the file
             for i in range(ad_index, len(cars)):
-                writer.writerow([cars[i], prices[i]])
-                ad_index+=1
+                writer.writerow([cars[i].encode('utf8'), prices[i].encode('utf8')])
+                ad_index += 1
 
             print("Data was succesfully written")
 

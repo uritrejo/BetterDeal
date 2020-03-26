@@ -3,12 +3,13 @@ import scrapy
 import notification.notification_manager
 # from dataExtraction.dataCollector import *
 import dataExtraction.dataCollector
+import config
 
 class KijijiSpider(scrapy.Spider):
 
 
     name = "kijiji"
-    start_urls = notification.email_config.LINKS_TO_SCRAPE
+    start_urls = config.LINKS_TO_SCRAPE
 
     def parse(self, response):
 

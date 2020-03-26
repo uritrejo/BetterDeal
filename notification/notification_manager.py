@@ -1,12 +1,13 @@
 import smtplib
-import notification.email_config
+# import notification.email_config
+import config
 import traceback
 
 def sendEmailNotification(ad_title, price):
 
-    email_address = notification.email_config.EMAIL_ADDRESS
-    password = notification.email_config.PASSWORD
-    destination_address = notification.email_config.DESTINATION_EMAIL_ADDRESS
+    email_address = config.EMAIL_ADDRESS
+    password = config.PASSWORD
+    destination_address = config.DESTINATION_EMAIL_ADDRESS
 
     # The exact contents of the email are subject to change
     subject = ad_title

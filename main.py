@@ -26,7 +26,7 @@ def run_spider():
 
     # this didn't work, but it might come in handy later: deferred.addCallback(reactor.callLater, 5, run_spider) #attempt 1
 
-    deferred = task.deferLater(reactor, notification.email_config.TIME_BETWEEN_ROUNDS, run_spider)
+    deferred = task.deferLater(reactor, config.TIME_BETWEEN_ROUNDS, run_spider)
 
     return deferred
 
