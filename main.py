@@ -4,6 +4,8 @@ from notification.notification_manager import *
 from scrapy.crawler import CrawlerRunner
 import notification.email_config
 import dataExtraction.dataCollector
+import os
+import csvtotable
 
 def run_spider():
 
@@ -32,5 +34,17 @@ def run_spider():
 
 
 print("Starting process...")
+#os.remove('data.html')
+#os.system('csvtotable data.csv data.html')
+
 run_spider()
+
+if os.path.exists('data.html'):
+    os.remove('data.html')
+    os.system('csvtotable data.csv data.html')
+else:
+    os.system('csvtotable data.csv data.html')
+
 reactor.run()   # you have to run the reactor yourself
+
+#os.system('csvtotable data.csv data.html')         #This uses the csvtotable package to create an html table using the csv, executed from the cli
