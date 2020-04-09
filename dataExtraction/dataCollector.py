@@ -6,6 +6,7 @@ import config
 # We could potentially use a list of lists, each for a given car model
 cars = []
 prices = [] # now stored as strings, but we'll have to move into storing them as floats
+links = [] # strings containing the link to the posting (may be better to use this for comparisons)
 removedPrices = []
 round = 1
 
@@ -21,11 +22,12 @@ NON_NUMERIC_PRICE = -1
 
 
 # this function processes the data given by the spider and stores it into the respective arrays
-def processNewData(strippedExtractedCars, strippedExtractedPrices):
+def processNewData(strippedExtractedCars, strippedExtractedPrices, strippedExtractedLinks):
 
     # now we check onto our global list if the given car extracted had already been processed
     # if it hadn't, then we send a notification
-    if (len(strippedExtractedCars) == len(strippedExtractedPrices)):
+    if (len(strippedExtractedCars) == len(strippedExtractedPrices) and
+            len(strippedExtractedCars) == len(strippedExtractedLinks)): # now we also compare the length of the links
 
         # we check if it's new, we print the new ones
         # if new, we add both the car and the price
@@ -35,20 +37,22 @@ def processNewData(strippedExtractedCars, strippedExtractedPrices):
 
             newCar = strippedExtractedCars[i]
             carPrice = strippedExtractedPrices[i]
+            carLink = strippedExtractedLinks[i]
 
             # if(newCar not in self.cars): # if it's a new posting, we notify and we add it
-            if (newCar not in cars):  # if it's a new posting, we notify and we add it
+            if (newCar not in cars):  # if it's a new posting, we notify and we add it (we might wanna compare teh links now instead of the titles)
 
-                print("New Car:\n", newCar, "\n", carPrice)
+                print("New Car:\n", newCar, "\n", carPrice, "\n", carLink)
                 cars.append(newCar)
                 prices.append(carPrice)
+                links.append(carLink)
 
                 if (round > config.ROUNDS_TO_IGNORE):
-                    sendEmailNotification(newCar, carPrice)
+                    sendEmailNotification(newCar, carPrice, carLink)
 
     else:  # we have a different number of cars and prices, we can't compare
         print("\nTragedie:\nStripped Cars: ", len(strippedExtractedCars), "\nStripped Prices: ",
-              len(strippedExtractedPrices))
+              len(strippedExtractedPrices), "\nStripped Links: ", len(strippedExtractedLinks))
 
 # helper method
 # erases all of the car and prices arrays except for the last WINDOW_TO_STORE elems
@@ -57,19 +61,20 @@ def processNewData(strippedExtractedCars, strippedExtractedPrices):
 # ramerk: it doesn't erase the csv file
 def clearPartialMemory():
 
-    global cars, prices, ad_index
+    global cars, prices, links, ad_index
 
     # we keep only the last values added into the lists
     cars = cars[len(cars)-WINDOW_TO_STORE:len(cars)]
     prices = prices[len(prices)-WINDOW_TO_STORE:len(prices)]
+    links = links[len(links)-WINDOW_TO_STORE:len(links)]
 
     # we also update the date index so that it's still aligned
     ad_index = WINDOW_TO_STORE # creo, verifica esta madre
 
-    print("Memory cleared, new sizes are: ", len(cars), len(prices))
+    print("Memory cleared, new sizes are: ", len(cars), len(prices), len(links))
 
 
-# writes the collected cars into a csv file
+# writes the collected cars into a csv file (excluding the links, might change later)
 def exportDataToCSV():
 
     global ad_index

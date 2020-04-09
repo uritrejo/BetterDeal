@@ -17,12 +17,14 @@ class KijijiSpider(scrapy.Spider):
 
         extractedCars = response.css('.title .title::text').extract() # gets the car add titles using css selectors
         extractedPrices = response.css('.price::text').extract() # gets the prices
+        extractedLinks = response.css('.title::attr(href)').extract() # gets the link to the given posting
 
         # the original strings contain a huge amount of unnecessary white characters, so we'll strip them and add them here
         strippedExtractedCars = []
         strippedExtractedPrices = []
+        strippedExtractedLinks = []
 
-        # first we strip every string in both lists to get the list of prices aligned with their ad
+        # first we strip every string in all lists to get the list of prices aligned with their posting and link
 
         for car in extractedCars:
             strippedCar = car.strip().strip('"') # we erase the whitespaces and the "" surrounding the name
@@ -37,16 +39,18 @@ class KijijiSpider(scrapy.Spider):
             if(len(strippedPrice) != 0): # there are some "fake" prices that need to be removed, they're pure whitespaces
                 strippedExtractedPrices.append(strippedPrice)
 
+        for link in extractedLinks:
+            strippedLink = link.strip().strip('"') # we erase the whitespaces and the "" surrounding the name
+            strippedExtractedLinks.append(strippedLink)
+            if(len(strippedLink)==0):
+                print("\n******A LINK WAS EMPTY!\n")
+
+
         # now that we cleaned the data, we can send it to the dataCollector
-        dataExtraction.dataCollector.processNewData(strippedExtractedCars, strippedExtractedPrices)
+        dataExtraction.dataCollector.processNewData(strippedExtractedCars, strippedExtractedPrices, strippedExtractedLinks)
 
         print("Round Finished.")
 
         dataExtraction.dataCollector.round += 1
 
         dataExtraction.dataCollector.exportDataToCSV()
-
-        # yield {
-        #     'car_adds' : extractedCars,
-        #     'prices' : extractedPrices
-        # }

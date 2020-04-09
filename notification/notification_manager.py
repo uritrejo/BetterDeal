@@ -3,7 +3,7 @@ import smtplib
 import config
 import traceback
 
-def sendEmailNotification(ad_title, price):
+def sendEmailNotification(ad_title, price, link):
 
     email_address = config.EMAIL_ADDRESS
     password = config.PASSWORD
@@ -11,7 +11,7 @@ def sendEmailNotification(ad_title, price):
 
     # The exact contents of the email are subject to change
     subject = ad_title
-    msg = 'Price: ' + price
+    msg = 'Price: ' + price + '\n' + 'https://www.kijiji.ca' + link
 
     try:
         server = smtplib.SMTP('smtp.gmail.com:587')
