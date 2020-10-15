@@ -1,23 +1,21 @@
 import scrapy
-# import notification.email_config
-import notification.notification_manager
-# from dataExtraction.dataCollector import *
-import dataExtraction.dataCollector
+# import notification.notification_manager
+import dataExtraction.dataCollector as collector
 import config
 
-class KijijiSpider(scrapy.Spider):
 
+class KijijiSpider(scrapy.Spider):
 
     name = "kijiji"
     start_urls = config.LINKS_TO_SCRAPE
 
     def parse(self, response):
 
-        print("Starting round of collection: ", dataExtraction.dataCollector.round)
+        print("Starting round of collection: ", collector.round)
 
-        extractedCars = response.css('.title .title::text').extract() # gets the car add titles using css selectors
-        extractedPrices = response.css('.price::text').extract() # gets the prices
-        extractedLinks = response.css('.title::attr(href)').extract() # gets the link to the given posting
+        extractedCars = response.css('.title .title::text').extract()  # gets the car add titles using css selectors
+        extractedPrices = response.css('.price::text').extract()  # gets the prices
+        extractedLinks = response.css('.title::attr(href)').extract()  # gets the link to the given posting
 
         # the original strings contain a huge amount of unnecessary white characters, so we'll strip them and add them here
         strippedExtractedCars = []
@@ -25,7 +23,6 @@ class KijijiSpider(scrapy.Spider):
         strippedExtractedLinks = []
 
         # first we strip every string in all lists to get the list of prices aligned with their posting and link
-
         for car in extractedCars:
             strippedCar = car.strip().strip('"') # we erase the whitespaces and the "" surrounding the name
             strippedExtractedCars.append(strippedCar)
@@ -47,10 +44,11 @@ class KijijiSpider(scrapy.Spider):
 
 
         # now that we cleaned the data, we can send it to the dataCollector
-        dataExtraction.dataCollector.processNewData(strippedExtractedCars, strippedExtractedPrices, strippedExtractedLinks)
+        collector.processNewData(strippedExtractedCars, strippedExtractedPrices, strippedExtractedLinks)
 
         print("Round Finished.")
 
-        dataExtraction.dataCollector.round += 1
+        # collector.round += 1
 
-        dataExtraction.dataCollector.exportDataToCSV()
+        # not calling it anymore now that we have Firebase
+        # collector.exportDataToCSV()

@@ -27,7 +27,7 @@ def processNewData(strippedExtractedCars, strippedExtractedPrices, strippedExtra
     # now we check onto our global list if the given car extracted had already been processed
     # if it hadn't, then we send a notification
     if (len(strippedExtractedCars) == len(strippedExtractedPrices) and
-            len(strippedExtractedCars) == len(strippedExtractedLinks)): # now we also compare the length of the links
+            len(strippedExtractedCars) == len(strippedExtractedLinks)):  # now we also compare the length of the links
 
         # we check if it's new, we print the new ones
         # if new, we add both the car and the price
@@ -39,29 +39,39 @@ def processNewData(strippedExtractedCars, strippedExtractedPrices, strippedExtra
             carPrice = strippedExtractedPrices[i]
             carLink = strippedExtractedLinks[i]
 
-            # if(newCar not in self.cars): # if it's a new posting, we notify and we add it
-            if (newCar not in cars):  # if it's a new posting, we notify and we add it (we might wanna compare teh links now instead of the titles)
+            # if newCar not in cars:  # if it's a new posting, we notify and we add it (we might wanna compare the links now instead of the titles)
+            if carLink not in links:  # if it's a new posting, we notify and we add it
 
                 print("New Car:\n", newCar, "\n", carPrice, "\n", carLink)
                 cars.append(newCar)
                 prices.append(carPrice)
                 links.append(carLink)
 
-                if (round > config.ROUNDS_TO_IGNORE):
+                if round > config.ROUNDS_TO_IGNORE:
                     sendEmailNotification(newCar, carPrice, carLink)
+
+        # we are only keeping in memory the most recent ads, once it crosses the maximum
+        # threshold, we clear the last few
+        if len(cars) > MAX_ADS_IN_ARRAYS:
+            clearPartialMemory()
 
     else:  # we have a different number of cars and prices, we can't compare
         print("\nTragedie:\nStripped Cars: ", len(strippedExtractedCars), "\nStripped Prices: ",
               len(strippedExtractedPrices), "\nStripped Links: ", len(strippedExtractedLinks))
 
+    round += 1
+
+
 # helper method
 # erases all of the car and prices arrays except for the last WINDOW_TO_STORE elems
 #   this is done in order to save memory, but still have a relative window to tell
 #   if the newest elems are repeated or if they should be notified
-# ramerk: it doesn't erase the csv file
+# Remark: it doesn't erase the csv file
 def clearPartialMemory():
 
     global cars, prices, links, ad_index
+
+    oldSize = len(cars)
 
     # we keep only the last values added into the lists
     cars = cars[len(cars)-WINDOW_TO_STORE:len(cars)]
@@ -69,11 +79,12 @@ def clearPartialMemory():
     links = links[len(links)-WINDOW_TO_STORE:len(links)]
 
     # we also update the date index so that it's still aligned
-    ad_index = WINDOW_TO_STORE # creo, verifica esta madre
+    ad_index = WINDOW_TO_STORE
 
-    print("Memory cleared, new sizes are: ", len(cars), len(prices), len(links))
+    print("Memory cleared, from old size: ", oldSize, " new sizes are: ", len(cars), len(prices), len(links))
 
 
+# WONT BE USED FOR NOW, REPLACED BY FIREBASE
 # writes the collected cars into a csv file (excluding the links, might change later)
 def exportDataToCSV():
 
