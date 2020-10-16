@@ -1,6 +1,7 @@
 import csv
 from notification.notification_manager import *
 import config
+import database.database as db
 
 # This is where the car data is going to be stored
 # We could potentially use a list of lists, each for a given car model
@@ -23,11 +24,17 @@ NON_NUMERIC_PRICE = -1
 
 # this function processes the data given by the spider and stores it into the respective arrays
 def processNewData(strippedExtractedCars, strippedExtractedPrices, strippedExtractedLinks):
+    global round
 
     # now we check onto our global list if the given car extracted had already been processed
     # if it hadn't, then we send a notification
     if (len(strippedExtractedCars) == len(strippedExtractedPrices) and
             len(strippedExtractedCars) == len(strippedExtractedLinks)):  # now we also compare the length of the links
+
+        # initialization for the arrays that will be passed to the database
+        newCars = []
+        newPrices = []
+        newLinks = []
 
         # we check if it's new, we print the new ones
         # if new, we add both the car and the price
@@ -43,9 +50,15 @@ def processNewData(strippedExtractedCars, strippedExtractedPrices, strippedExtra
             if carLink not in links:  # if it's a new posting, we notify and we add it
 
                 print("New Car:\n", newCar, "\n", carPrice, "\n", carLink)
+                # we add them into the global list
                 cars.append(newCar)
                 prices.append(carPrice)
                 links.append(carLink)
+
+                # we add them into the database lists
+                newCars.append(newCar)
+                newPrices.append(carPrice)
+                newLinks.append(carLink)
 
                 if round > config.ROUNDS_TO_IGNORE:
                     sendEmailNotification(newCar, carPrice, carLink)
@@ -54,6 +67,10 @@ def processNewData(strippedExtractedCars, strippedExtractedPrices, strippedExtra
         # threshold, we clear the last few
         if len(cars) > MAX_ADS_IN_ARRAYS:
             clearPartialMemory()
+
+        if len(newCars) > 0:
+            db.addNewCars(newCars, newLinks, newPrices)
+
 
     else:  # we have a different number of cars and prices, we can't compare
         print("\nTragedie:\nStripped Cars: ", len(strippedExtractedCars), "\nStripped Prices: ",

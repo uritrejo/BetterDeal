@@ -1,34 +1,80 @@
-from firebase import firebase
+import uuid
+import pyrebase
+
+firebaseConfig = {
+    'apiKey': "AIzaSyCEE9JHRfzIpuxgtMzFeaZuqw2_DaFkCQY",
+    'authDomain': "betterdeals-de427.firebaseapp.com",
+    'databaseURL': "https://betterdeals-de427.firebaseio.com",
+    'projectId': "betterdeals-de427",
+    'storageBucket': "betterdeals-de427.appspot.com",
+    'messagingSenderId': "33445910441",
+    'appId': "1:33445910441:web:d89aecd987708ff8a916b8",
+    'measurementId': "G-J3PE7FMQ4M"
+}
+
+
+def retrieveSearches():
+    print("Retrieve Searches called")
+    fire = pyrebase.initialize_app(firebaseConfig)
+    db = fire.database()
+    searches = db.child('Searches').get()
+    links = []
+    for search in searches.each():
+        # print(search.key())
+        # print(search.val())
+        # print("Link:", search.val()['Link'])
+        links.append(search.val()['Link'])
+    # later you could do return links, models
+    return links
+
 
 def retrieveCars():
-    print("Retrieving cars from database...\n")
-    db = firebase.FirebaseApplication("https://betterdeals-de427.firebaseio.com/", None);
-    result = db.get('/betterdeals-de427/Car', '')
+    fire = pyrebase.initialize_app(firebaseConfig)
+    db = fire.database()
+    searches = db.child('Cars').get()
+    links = []
+    models = []
+    prices = []
+    for search in searches.each():
+        print(search.key())
+        print(search.val())
+        print("Link:", search.val()['Link'])
+        print("Model:", search.val()['Model'])
+        print("Price:", search.val()['Price'])
+        links.append(search.val()['Link'])
+        models.append(search.val()['Model'])
+        models.append(search.val()['Price'])
+
+    return links, models, prices
+
+
+def addNewSearch(link, model):
+    fire = pyrebase.initialize_app(firebaseConfig)
+    db = fire.database()
+    search = {
+        'Model': model,
+        'Link': link
+    }
+    db.child('Searches').push(search)
+
+
+def addNewCars(cars, links, prices):
+    fire = pyrebase.initialize_app(firebaseConfig)
+    db = fire.database()
+    # to test function
+    # links = ['Link1', 'Link2']
+    # cars = ['Car1', 'Car2']
+    # prices = [1, 2]
+    dataJSON = {}
+
+    for i in range(len(cars)):
+        uid = str(uuid.uuid1())
+        dataJSON[uid] = {
+            'Model': cars[i],
+            'Price': prices[i],
+            'Link': links[i]
+        }
+    result = db.child('Cars').set(dataJSON)  # throws the fields directly into the thingy
+    print("Cars added: ")
     print(result)
-
-# retrieveAllCars
-
-# insertManyCars
-    # potentially a data formating into json for this one
-    # make sure where the changes have to be made to do this.
-    # probably keep the circular list anyways, you cant always retrieve your shit from firebase
-    # you can keep a local list of the new changes and then pass the list as a whole to a method
-    # bref, the add cars has to be for adding a list of cars, not only one or two
-
-# check if you can decide the key (seria el kijiji announcement)
-
-# retrieveLinks
-# add links
-
-def retrieveLinks():
-    print("Retrieving cars from database...\n")
-    db = firebase.FirebaseApplication("https://betterdeals-de427.firebaseio.com/", None);
-    result = db.get('/betterdeals-de427/Link', '')
-    print(result)
-
-
-
-
-# todo:
-    # erase the shit
-    # design interface
+    print("length json = ", str(len(str(dataJSON))), ", length result = ", str(len(str(result))))
