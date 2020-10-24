@@ -57,14 +57,19 @@ def addNewSearch(link, model):
     }
     db.child('Searches').push(search)
 
+def addNewCar(car, link, price):
+    fire = pyrebase.initialize_app(firebaseConfig)
+    db = fire.database()
+    new_car = {
+        'Model': car,
+        'Price': price,
+        'Link': link
+    }
+    db.child('Cars').push(new_car)
 
 def addNewCars(cars, links, prices):
     fire = pyrebase.initialize_app(firebaseConfig)
     db = fire.database()
-    # to test function
-    # links = ['Link1', 'Link2']
-    # cars = ['Car1', 'Car2']
-    # prices = [1, 2]
     dataJSON = {}
 
     for i in range(len(cars)):

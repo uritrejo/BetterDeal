@@ -11,13 +11,13 @@ links = [] # strings containing the link to the posting (may be better to use th
 removedPrices = []
 round = 1
 
-# will be used to only add the unadded ads
+# will be used to only add the unadded ads on the csv
 ad_index = -1
 
 # When the local list reaches this size, it will write its values into a csv file and clear the local list
-MAX_ADS_IN_ARRAYS = 1200  # to be fully tested, 1200 sounds okay for now, think about it more logically
+MAX_ADS_IN_ARRAYS = 1500  # to be fully tested, 1200 sounds okay for now, think about it more logically
 # when we get to MAX_ADS_IN_ARRAYS, only the last WINDOW_TO_STORE added elems will be kept in the arrays
-WINDOW_TO_STORE = 200
+WINDOW_TO_STORE = 1000
 # the price will be set to this whenever the price for a given ad is smt like: "PLEASE CONTACT"
 NON_NUMERIC_PRICE = -1
 
@@ -30,11 +30,6 @@ def processNewData(strippedExtractedCars, strippedExtractedPrices, strippedExtra
     # if it hadn't, then we send a notification
     if (len(strippedExtractedCars) == len(strippedExtractedPrices) and
             len(strippedExtractedCars) == len(strippedExtractedLinks)):  # now we also compare the length of the links
-
-        # initialization for the arrays that will be passed to the database
-        newCars = []
-        newPrices = []
-        newLinks = []
 
         # we check if it's new, we print the new ones
         # if new, we add both the car and the price
@@ -49,17 +44,15 @@ def processNewData(strippedExtractedCars, strippedExtractedPrices, strippedExtra
             # if newCar not in cars:  # if it's a new posting, we notify and we add it (we might wanna compare the links now instead of the titles)
             if carLink not in links:  # if it's a new posting, we notify and we add it
 
-                print("New Car:\n", newCar, "\n", carPrice, "\n", carLink)
+                print("New Car:\n", newCar, "\n", carPrice)
                 # we add them into the global list
                 cars.append(newCar)
                 prices.append(carPrice)
                 links.append(carLink)
 
-                # we add them into the database lists
-                newCars.append(newCar)
-                newPrices.append(carPrice)
-                newLinks.append(carLink)
+                ''' AQUI HAZ ALGO PARA LO DE KIJIJ AUTOS, CHECA COMO ESTAN FORMATEADOS '''
 
+                db.addNewCar(newCar, carLink, carPrice)
                 if round > config.ROUNDS_TO_IGNORE:
                     sendEmailNotification(newCar, carPrice, carLink)
 
@@ -67,10 +60,6 @@ def processNewData(strippedExtractedCars, strippedExtractedPrices, strippedExtra
         # threshold, we clear the last few
         if len(cars) > MAX_ADS_IN_ARRAYS:
             clearPartialMemory()
-
-        if len(newCars) > 0:
-            db.addNewCars(newCars, newLinks, newPrices)
-
 
     else:  # we have a different number of cars and prices, we can't compare
         print("\nTragedie:\nStripped Cars: ", len(strippedExtractedCars), "\nStripped Prices: ",
@@ -95,7 +84,7 @@ def clearPartialMemory():
     prices = prices[len(prices)-WINDOW_TO_STORE:len(prices)]
     links = links[len(links)-WINDOW_TO_STORE:len(links)]
 
-    # we also update the date index so that it's still aligned
+    # we also update the date index so that it's still aligned (for the CSV file)
     ad_index = WINDOW_TO_STORE
 
     print("Memory cleared, from old size: ", oldSize, " new sizes are: ", len(cars), len(prices), len(links))
