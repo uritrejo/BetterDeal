@@ -13,6 +13,11 @@ firebaseConfig = {
 }
 
 
+'''
+    Documentation on how to use pyrebase available at:
+    https://github.com/thisbejim/Pyrebase
+'''
+
 def retrieveSearches():
     print("Retrieve Searches called")
     fire = pyrebase.initialize_app(firebaseConfig)
@@ -20,9 +25,6 @@ def retrieveSearches():
     searches = db.child('Searches').get()
     links = []
     for search in searches.each():
-        # print(search.key())
-        # print(search.val())
-        # print("Link:", search.val()['Link'])
         links.append(search.val()['Link'])
     # later you could do return links, models
     return links
@@ -57,6 +59,7 @@ def addNewSearch(link, model):
     }
     db.child('Searches').push(search)
 
+
 def addNewCar(car, link, price):
     fire = pyrebase.initialize_app(firebaseConfig)
     db = fire.database()
@@ -66,6 +69,7 @@ def addNewCar(car, link, price):
         'Link': link
     }
     db.child('Cars').push(new_car)
+
 
 def addNewCars(cars, links, prices):
     fire = pyrebase.initialize_app(firebaseConfig)
