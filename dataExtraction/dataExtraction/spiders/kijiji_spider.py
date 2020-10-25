@@ -1,8 +1,8 @@
 import scrapy
-# import notification.notification_manager
+import database.database as db
 import dataExtraction.dataCollector as collector
 import config
-import database.database as db
+
 
 
 class KijijiSpider(scrapy.Spider):
@@ -33,7 +33,11 @@ class KijijiSpider(scrapy.Spider):
             da fok outta every email.
             response.request.url has the link, from there i should be able to do it
         '''
-        print("Starting round of collection: ", collector.round)
+
+        currentRequestURL = response.request.url
+        collector.updateSearchesCount(self.start_urls)
+        print("Starting round ", collector.searchRounds[currentRequestURL],
+              " of collection for: ", currentRequestURL)
 
         extractedCars = response.css('.title .title::text').extract()  # gets the car add titles using css selectors
         extractedPrices = response.css('.price::text').extract()  # gets the prices
@@ -65,6 +69,7 @@ class KijijiSpider(scrapy.Spider):
                 print("\n******A LINK WAS EMPTY!\n")
 
         # now that we cleaned the data, we can send it to the dataCollector
-        collector.processNewData(strippedExtractedCars, strippedExtractedPrices, strippedExtractedLinks)
+        collector.processNewData(currentRequestURL,
+                                 strippedExtractedCars, strippedExtractedPrices, strippedExtractedLinks)
 
         print("Round Finished.")

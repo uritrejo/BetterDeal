@@ -3,17 +3,6 @@ from notification.notification_manager import *
 import config
 import database.database as db
 
-# This is where the car data is going to be stored
-# We could potentially use a list of lists, each for a given car model
-cars = []
-prices = [] # now stored as strings, but we'll have to move into storing them as floats
-links = [] # strings containing the link to the posting (may be better to use this for comparisons)
-removedPrices = []
-round = 1
-
-# will be used to only add the unadded ads on the csv
-ad_index = -1
-
 # When the local list reaches this size, it will write its values into a csv file and clear the local list
 MAX_ADS_IN_ARRAYS = 1500  # to be fully tested, 1200 sounds okay for now, think about it more logically
 # when we get to MAX_ADS_IN_ARRAYS, only the last WINDOW_TO_STORE added elems will be kept in the arrays
@@ -21,10 +10,23 @@ WINDOW_TO_STORE = 1000
 # the price will be set to this whenever the price for a given ad is smt like: "PLEASE CONTACT"
 NON_NUMERIC_PRICE = -1
 
+# This is where the car data is going to be stored
+# We could potentially use a list of lists, each for a given car model
+cars = []
+prices = [] # now stored as strings, but we'll have to move into storing them as floats
+links = [] # strings containing the link to the posting (may be better to use this for comparisons)
+removedPrices = []
+searchRounds = {}  # will contain teh round counter for every search that is added on the database
+
+
+# can be removed when cleaning csv functionalities
+# will be used to only add the unadded ads on the csv
+ad_index = -1
+
 
 # this function processes the data given by the spider and stores it into the respective arrays
-def processNewData(strippedExtractedCars, strippedExtractedPrices, strippedExtractedLinks):
-    global round
+def processNewData(currentRequestURL, strippedExtractedCars, strippedExtractedPrices, strippedExtractedLinks):
+    global searchRounds
 
     # now we check onto our global list if the given car extracted had already been processed
     # if it hadn't, then we send a notification
@@ -53,7 +55,7 @@ def processNewData(strippedExtractedCars, strippedExtractedPrices, strippedExtra
                 ''' AQUI HAZ ALGO PARA LO DE KIJIJ AUTOS, CHECA COMO ESTAN FORMATEADOS '''
 
                 db.addNewCar(newCar, carLink, carPrice)
-                if round > config.ROUNDS_TO_IGNORE:
+                if searchRounds[currentRequestURL] > config.ROUNDS_TO_IGNORE:
                     sendEmailNotification(newCar, carPrice, carLink)
 
         # we are only keeping in memory the most recent ads, once it crosses the maximum
@@ -65,7 +67,7 @@ def processNewData(strippedExtractedCars, strippedExtractedPrices, strippedExtra
         print("\nTragedie:\nStripped Cars: ", len(strippedExtractedCars), "\nStripped Prices: ",
               len(strippedExtractedPrices), "\nStripped Links: ", len(strippedExtractedLinks))
 
-    round += 1
+    searchRounds[currentRequestURL] += 1
 
 
 # helper method
@@ -121,3 +123,16 @@ def exportDataToCSV():
 
     except Exception:
         traceback.print_exc()
+
+
+'''
+    Will create an entry into the dictionary of counts, if it's already there, 
+    it will leave it untouched
+'''
+
+def updateSearchesCount(links):
+    global searchRounds
+    for link in links:
+        if link not in searchRounds:
+            searchRounds[link] = 1
+

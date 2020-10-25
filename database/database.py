@@ -1,6 +1,7 @@
 import uuid
 import pyrebase
 
+
 firebaseConfig = {
     'apiKey': "AIzaSyCEE9JHRfzIpuxgtMzFeaZuqw2_DaFkCQY",
     'authDomain': "betterdeals-de427.firebaseapp.com",
@@ -26,8 +27,10 @@ def retrieveSearches():
     links = []
     for search in searches.each():
         links.append(search.val()['Link'])
+
     # later you could do return links, models
     return links
+
 
 
 def retrieveCars():
