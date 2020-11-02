@@ -1,5 +1,6 @@
 # BetterDeal
 Repository for Capstone Project
+Please refer to uritrejo/BetterDealUI for the User Interface component.
 
 ## Members
 Uri Trejo, Noah Habte
