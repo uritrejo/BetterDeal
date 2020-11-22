@@ -118,3 +118,16 @@ def addNewCars(cars, links, prices, dates):
     except:
         print("Error adding new cars.")
         traceback.print_exc()
+
+
+# This function is only to be used in order to clear test data from the database online
+# It deletes teh Cars key and all of its children from the database
+def deleteAllCars():
+    try:
+        fire = pyrebase.initialize_app(firebaseConfig)
+        db = fire.database()
+        db.child("Cars").remove()
+
+    except:
+        print("Error deleting all cars.")
+        traceback.print_exc()
