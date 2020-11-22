@@ -22,3 +22,5 @@ def run_spider():
 print("Starting process...")
 run_spider()
 reactor.run()
+
+# sendEmailNotification("A good car", "$420", "link.com")

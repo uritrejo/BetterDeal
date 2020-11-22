@@ -1,5 +1,8 @@
 import uuid
+from idlelib.debugger_r import tracebacktable
+
 import pyrebase
+import traceback
 
 
 firebaseConfig = {
@@ -19,74 +22,99 @@ firebaseConfig = {
     https://github.com/thisbejim/Pyrebase
 '''
 
+
 def retrieveSearches():
     print("Retrieve Searches called")
-    fire = pyrebase.initialize_app(firebaseConfig)
-    db = fire.database()
-    searches = db.child('Searches').get()
     links = []
-    for search in searches.each():
-        links.append(search.val()['Link'])
-
+    try:
+        fire = pyrebase.initialize_app(firebaseConfig)
+        db = fire.database()
+        searches = db.child('Searches').get()
+        for search in searches.each():
+            links.append(search.val()['Link'])
+    except:
+        print("Error retrieving searches, skipping round of collection...")
+        traceback.print_exc()
+        # here you could also save the last of the searches in case it can't retrieve them
+        # but at the same time, if this fails, probably its the connection and everything is failing
     # later you could do return links, models
     return links
 
 
-
 def retrieveCars():
-    fire = pyrebase.initialize_app(firebaseConfig)
-    db = fire.database()
-    searches = db.child('Cars').get()
     links = []
     models = []
     prices = []
-    for search in searches.each():
-        print(search.key())
-        print(search.val())
-        print("Link:", search.val()['Link'])
-        print("Model:", search.val()['Model'])
-        print("Price:", search.val()['Price'])
-        links.append(search.val()['Link'])
-        models.append(search.val()['Model'])
-        models.append(search.val()['Price'])
-
-    return links, models, prices
+    dates = []
+    try:
+        fire = pyrebase.initialize_app(firebaseConfig)
+        db = fire.database()
+        searches = db.child('Cars').get()
+        for search in searches.each():
+            print(search.key())
+            print(search.val())
+            print("Link:", search.val()['Link'])
+            print("Model:", search.val()['Model'])
+            print("Price:", search.val()['Price'])
+            print("Date:", search.val()['Date'])
+            links.append(search.val()['Link'])
+            models.append(search.val()['Model'])
+            prices.append(search.val()['Price'])
+            dates.append(search.val()['Date'])
+    except:
+        print("Error retrieving cars from the database.")
+        traceback.print_exc()
+    return links, models, prices, dates
 
 
 def addNewSearch(link, model):
-    fire = pyrebase.initialize_app(firebaseConfig)
-    db = fire.database()
-    search = {
-        'Model': model,
-        'Link': link
-    }
-    db.child('Searches').push(search)
-
-
-def addNewCar(car, link, price):
-    fire = pyrebase.initialize_app(firebaseConfig)
-    db = fire.database()
-    new_car = {
-        'Model': car,
-        'Price': price,
-        'Link': link
-    }
-    db.child('Cars').push(new_car)
-
-
-def addNewCars(cars, links, prices):
-    fire = pyrebase.initialize_app(firebaseConfig)
-    db = fire.database()
-    dataJSON = {}
-
-    for i in range(len(cars)):
-        uid = str(uuid.uuid1())
-        dataJSON[uid] = {
-            'Model': cars[i],
-            'Price': prices[i],
-            'Link': links[i]
+    try:
+        fire = pyrebase.initialize_app(firebaseConfig)
+        db = fire.database()
+        search = {
+            'Model': model,
+            'Link': link
         }
-    result = db.child('Cars').set(dataJSON)  # throws the fields directly into the thingy
-    print("Cars added: ")
-    print(result)
-    print("length json = ", str(len(str(dataJSON))), ", length result = ", str(len(str(result))))
+        db.child('Searches').push(search)
+    except:
+        print("Error adding search.")
+        traceback.print_exc()
+
+
+def addNewCar(car, link, price, date):
+    try:
+        fire = pyrebase.initialize_app(firebaseConfig)
+        db = fire.database()
+        new_car = {
+            'Model': car,
+            'Price': price,
+            'Date': date,
+            'Link': link
+        }
+        db.child('Cars').push(new_car)
+    except:
+        print("Error adding new car.")
+        traceback.print_exc()
+
+
+def addNewCars(cars, links, prices, dates):
+    try:
+        fire = pyrebase.initialize_app(firebaseConfig)
+        db = fire.database()
+        dataJSON = {}
+
+        for i in range(len(cars)):
+            uid = str(uuid.uuid1())
+            dataJSON[uid] = {
+                'Model': cars[i],
+                'Price': prices[i],
+                'Date': dates[i],
+                'Link': links[i]
+            }
+        result = db.child('Cars').set(dataJSON)  # throws the fields directly into the thingy
+        print("Cars added: ")
+        print(result)
+        print("length json = ", str(len(str(dataJSON))), ", length result = ", str(len(str(result))))
+    except:
+        print("Error adding new cars.")
+        traceback.print_exc()
