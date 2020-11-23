@@ -1,6 +1,4 @@
 import uuid
-from idlelib.debugger_r import tracebacktable
-
 import pyrebase
 import traceback
 
