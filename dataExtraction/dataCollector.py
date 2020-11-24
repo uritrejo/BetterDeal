@@ -1,8 +1,11 @@
 import csv
+import logging
+import logging.handlers
 from notification.notification_manager import *
 import config
 import database.database as db
 from datetime import date
+import traceback
 
 # When the local list reaches this size, it will write its values into a csv file and clear the local list
 MAX_ADS_IN_ARRAYS = 1500  # to be fully tested, 1200 sounds okay for now, think about it more logically
@@ -25,6 +28,17 @@ searchRounds = {}  # will contain the round counter for every search that is add
 # can be removed when cleaning csv functionalities
 # will be used to only add the unadded ads on the csv
 ad_index = -1
+
+# we set the logger configuration to write to a file, and also to print to terminal
+logger = logging.getLogger("BetterDealer")
+logger.setLevel(logging.DEBUG)
+handler = logging.handlers.RotatingFileHandler(
+    "logsUI.log", maxBytes=(1048576*5), backupCount=7
+)
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+handler.setFormatter(formatter)
+logger.addHandler(handler)
+logger.addHandler(logging.StreamHandler())
 
 
 # this function processes the data given by the spider and stores it into the respective arrays
@@ -60,17 +74,16 @@ def processNewData(currentRequestURL, strippedExtractedCars, strippedExtractedPr
             carPrice = strippedExtractedPrices[i]
             carLink = strippedExtractedLinks[i]
 
+            # the links from kijijiauto come complete (https://kijijauto...)
+            # but fot he kijiji ones, we must add the base of the link (they always start with /)
+            if carLink[0] == '/':
+                carLink = KIJIJI_BASE + carLink
+
             # if newCar not in cars:  # if it's a new posting, we notify and we add it (we might wanna compare
             # the links now instead of the titles)
             if carLink not in links:  # if it's a new posting, we notify and we add it
 
                 print("New Car:\n", newCar, "\n", carPrice)
-
-                # the links from kijijiauto come complete (https://kijijauto...)
-                # but fot he kijiji ones, we must add the base of the link (they always start with /)
-                if carLink[0] == '/':
-                    carLink = KIJIJI_BASE + carLink
-
                 # now we strip the price from the dollar sign and the commas to try and parse it as a 'double'
 
                 try:
@@ -78,9 +91,9 @@ def processNewData(currentRequestURL, strippedExtractedCars, strippedExtractedPr
                     numericCarPrice = float(formattedCarPrice)
                 except:
                     # if we fail to convert it to a float, then we add a -1 (maybe a 0 would be good) to show the error
-                    print("Price: " + carPrice + " couldn't be parsed as a double.")
+                    # print("Price: " + carPrice + " couldn't be parsed as a double.")
                     numericCarPrice = -1
-                    traceback.print_exc()
+                    # traceback.print_exc()
 
                 #  we add them into the global list
                 cars.append(newCar)
@@ -102,7 +115,10 @@ def processNewData(currentRequestURL, strippedExtractedCars, strippedExtractedPr
 
         # we send the email with the cars to notify
         if searchRounds[currentRequestURL] > config.ROUNDS_TO_IGNORE:
-            sendEmailNotificationM(carsToNotify, pricesToNotify, linksToNotify)
+            if len(carsToNotify) > 0:
+                sendEmailNotificationM(carsToNotify, pricesToNotify, linksToNotify)
+
+        logger.info("Number of new cars in round: " + str(len(carsToNotify)))
 
         # we are only keeping in memory the most recent ads, once it crosses the maximum
         # threshold, we clear the last few
@@ -110,8 +126,7 @@ def processNewData(currentRequestURL, strippedExtractedCars, strippedExtractedPr
             clearPartialMemory()
 
     else:  # we have a different number of cars and prices, we can't compare
-        print("\nAttention: Data in this round of collection was corrupted. " +
-              "Posts won't update until next round of collection.\n")
+        logger.warning("Inconsistent number of links to cars to prices. ")
 
     searchRounds[currentRequestURL] += 1
 
@@ -136,40 +151,7 @@ def clearPartialMemory():
     # we also update the date index so that it's still aligned (for the CSV file)
     ad_index = WINDOW_TO_STORE
 
-    print("Memory cleared, from old size: ", oldSize, " new sizes are: ", len(cars), len(prices), len(links), len(dates))
-
-
-# DEPRECATED, BUT WILL BE REUSED WHITHIN THE UI, SO KEEP THE CODE
-# WONT BE USED FOR NOW, REPLACED BY FIREBASE
-# writes the collected cars into a csv file (excluding the links, might change later)
-def exportDataToCSV():
-    global ad_index
-
-    appendToCSV = 'a'
-    if ad_index == -1:  # this would be true if it's the first file ot be written
-        appendToCSV = 'w'
-
-    try:
-        with open('data.csv', appendToCSV) as file:
-            # with open('data.csv', appendToCSV, newline='') as file: # This version wouldnt work on linux
-            writer = csv.writer(file)
-            # we initialize the titles if it is the first to be written
-            if ad_index == -1:
-                writer.writerow(["Car Model".encode('utf8'), "Price".encode('utf8')])
-                ad_index += 1
-
-            # we write each of the new cars in a row at the end of the file
-            for i in range(ad_index, len(cars)):
-                writer.writerow([cars[i].encode('utf8'), prices[i].encode('utf8')])
-                ad_index += 1
-
-            print("Data was succesfully written")
-
-            if len(cars) > MAX_ADS_IN_ARRAYS:
-                clearPartialMemory()
-
-    except Exception:
-        traceback.print_exc()
+    logger.info("Memory cleared, from old size of lists: " + str(oldSize) + " new size is " + str(len(cars)))
 
 
 '''
@@ -181,3 +163,4 @@ def updateSearchesCount(links):
     for link in links:
         if link not in searchRounds:
             searchRounds[link] = 1
+            logger.info("A new link has been added to the rounds: " + link)

@@ -1,0 +1,360 @@
+2020-11-24 01:10:08,300 - BetterDealer - INFO - A new link has been added to the rounds: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:10:08,301 - BetterDealer - INFO - A new link has been added to the rounds: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:10:08,301 - BetterDealer - INFO - Starting round 1 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:10:10,102 - BetterDealer - ERROR - Exception happened at Kijiji_Spyder
+Traceback (most recent call last):
+  File "C:\Users\urit\OneDrive\Escritorio\uOttawa\4th year\SEG4910\BetterDeal\dataExtraction\dataCollector.py", line 90, in processNewData
+    numericCarPrice = float(formattedCarPrice)
+ValueError: could not convert string to float: 'Please Contact'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\urit\OneDrive\Escritorio\uOttawa\4th year\SEG4910\BetterDeal\dataExtraction\dataExtraction\spiders\kijiji_spider.py", line 83, in parse
+    strippedExtractedCars, strippedExtractedPrices, strippedExtractedLinks)
+  File "C:\Users\urit\OneDrive\Escritorio\uOttawa\4th year\SEG4910\BetterDeal\dataExtraction\dataCollector.py", line 95, in processNewData
+    traceback.print_exc()
+NameError: name 'traceback' is not defined
+2020-11-24 01:10:10,143 - BetterDealer - INFO - Round finished
+2020-11-24 01:10:10,144 - BetterDealer - INFO - Starting round 1 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:10:12,413 - BetterDealer - ERROR - Exception happened at Kijiji_Spyder
+Traceback (most recent call last):
+  File "C:\Users\urit\OneDrive\Escritorio\uOttawa\4th year\SEG4910\BetterDeal\dataExtraction\dataCollector.py", line 90, in processNewData
+    numericCarPrice = float(formattedCarPrice)
+ValueError: could not convert string to float: 'Please Contact'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\urit\OneDrive\Escritorio\uOttawa\4th year\SEG4910\BetterDeal\dataExtraction\dataExtraction\spiders\kijiji_spider.py", line 83, in parse
+    strippedExtractedCars, strippedExtractedPrices, strippedExtractedLinks)
+  File "C:\Users\urit\OneDrive\Escritorio\uOttawa\4th year\SEG4910\BetterDeal\dataExtraction\dataCollector.py", line 95, in processNewData
+    traceback.print_exc()
+NameError: name 'traceback' is not defined
+2020-11-24 01:10:12,413 - BetterDealer - INFO - Round finished
+2020-11-24 01:10:31,254 - BetterDealer - INFO - Starting round 1 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:10:31,944 - BetterDealer - ERROR - Exception happened at Kijiji_Spyder
+Traceback (most recent call last):
+  File "C:\Users\urit\OneDrive\Escritorio\uOttawa\4th year\SEG4910\BetterDeal\dataExtraction\dataCollector.py", line 90, in processNewData
+    numericCarPrice = float(formattedCarPrice)
+ValueError: could not convert string to float: 'Please Contact'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\urit\OneDrive\Escritorio\uOttawa\4th year\SEG4910\BetterDeal\dataExtraction\dataExtraction\spiders\kijiji_spider.py", line 83, in parse
+    strippedExtractedCars, strippedExtractedPrices, strippedExtractedLinks)
+  File "C:\Users\urit\OneDrive\Escritorio\uOttawa\4th year\SEG4910\BetterDeal\dataExtraction\dataCollector.py", line 95, in processNewData
+    traceback.print_exc()
+NameError: name 'traceback' is not defined
+2020-11-24 01:10:31,946 - BetterDealer - INFO - Round finished
+2020-11-24 01:10:32,056 - BetterDealer - INFO - Starting round 1 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:10:32,686 - BetterDealer - ERROR - Exception happened at Kijiji_Spyder
+Traceback (most recent call last):
+  File "C:\Users\urit\OneDrive\Escritorio\uOttawa\4th year\SEG4910\BetterDeal\dataExtraction\dataCollector.py", line 90, in processNewData
+    numericCarPrice = float(formattedCarPrice)
+ValueError: could not convert string to float: 'Please Contact'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\urit\OneDrive\Escritorio\uOttawa\4th year\SEG4910\BetterDeal\dataExtraction\dataExtraction\spiders\kijiji_spider.py", line 83, in parse
+    strippedExtractedCars, strippedExtractedPrices, strippedExtractedLinks)
+  File "C:\Users\urit\OneDrive\Escritorio\uOttawa\4th year\SEG4910\BetterDeal\dataExtraction\dataCollector.py", line 95, in processNewData
+    traceback.print_exc()
+NameError: name 'traceback' is not defined
+2020-11-24 01:10:32,687 - BetterDealer - INFO - Round finished
+2020-11-24 01:10:55,240 - BetterDealer - INFO - Starting round 1 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:10:55,868 - BetterDealer - ERROR - Exception happened at Kijiji_Spyder
+Traceback (most recent call last):
+  File "C:\Users\urit\OneDrive\Escritorio\uOttawa\4th year\SEG4910\BetterDeal\dataExtraction\dataCollector.py", line 90, in processNewData
+    numericCarPrice = float(formattedCarPrice)
+ValueError: could not convert string to float: 'Please Contact'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\urit\OneDrive\Escritorio\uOttawa\4th year\SEG4910\BetterDeal\dataExtraction\dataExtraction\spiders\kijiji_spider.py", line 83, in parse
+    strippedExtractedCars, strippedExtractedPrices, strippedExtractedLinks)
+  File "C:\Users\urit\OneDrive\Escritorio\uOttawa\4th year\SEG4910\BetterDeal\dataExtraction\dataCollector.py", line 95, in processNewData
+    traceback.print_exc()
+NameError: name 'traceback' is not defined
+2020-11-24 01:10:55,869 - BetterDealer - INFO - Round finished
+2020-11-24 01:10:55,871 - BetterDealer - INFO - Starting round 1 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:10:55,964 - BetterDealer - ERROR - Exception happened at Kijiji_Spyder
+Traceback (most recent call last):
+  File "C:\Users\urit\OneDrive\Escritorio\uOttawa\4th year\SEG4910\BetterDeal\dataExtraction\dataCollector.py", line 90, in processNewData
+    numericCarPrice = float(formattedCarPrice)
+ValueError: could not convert string to float: 'Please Contact'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\urit\OneDrive\Escritorio\uOttawa\4th year\SEG4910\BetterDeal\dataExtraction\dataExtraction\spiders\kijiji_spider.py", line 83, in parse
+    strippedExtractedCars, strippedExtractedPrices, strippedExtractedLinks)
+  File "C:\Users\urit\OneDrive\Escritorio\uOttawa\4th year\SEG4910\BetterDeal\dataExtraction\dataCollector.py", line 95, in processNewData
+    traceback.print_exc()
+NameError: name 'traceback' is not defined
+2020-11-24 01:10:55,965 - BetterDealer - INFO - Round finished
+2020-11-24 01:12:36,935 - BetterDealer - INFO - A new link has been added to the rounds: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:12:36,935 - BetterDealer - INFO - A new link has been added to the rounds: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:12:36,935 - BetterDealer - INFO - Starting round 1 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:12:44,679 - BetterDealer - INFO - Round finished
+2020-11-24 01:12:44,788 - BetterDealer - INFO - Starting round 1 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:12:53,192 - BetterDealer - INFO - Round finished
+2020-11-24 01:13:00,828 - BetterDealer - INFO - Starting round 2 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:13:00,902 - BetterDealer - INFO - Round finished
+2020-11-24 01:13:01,520 - BetterDealer - INFO - Starting round 2 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:13:02,497 - BetterDealer - INFO - Round finished
+2020-11-24 01:13:24,546 - BetterDealer - INFO - Starting round 3 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:13:25,003 - BetterDealer - INFO - Round finished
+2020-11-24 01:13:25,381 - BetterDealer - INFO - Starting round 3 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:13:25,458 - BetterDealer - INFO - Round finished
+2020-11-24 01:13:48,036 - BetterDealer - INFO - Starting round 4 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:13:48,116 - BetterDealer - INFO - Round finished
+2020-11-24 01:13:48,656 - BetterDealer - INFO - Starting round 4 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:13:48,904 - BetterDealer - INFO - Round finished
+2020-11-24 01:14:12,669 - BetterDealer - INFO - Starting round 5 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:14:13,114 - BetterDealer - INFO - Round finished
+2020-11-24 01:14:13,115 - BetterDealer - INFO - Starting round 5 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:14:13,193 - BetterDealer - INFO - Round finished
+2020-11-24 01:14:35,895 - BetterDealer - INFO - Starting round 6 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:14:36,154 - BetterDealer - INFO - Round finished
+2020-11-24 01:14:36,290 - BetterDealer - INFO - Starting round 6 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:14:36,366 - BetterDealer - INFO - Round finished
+2020-11-24 01:14:59,229 - BetterDealer - INFO - Starting round 7 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:14:59,801 - BetterDealer - INFO - Round finished
+2020-11-24 01:15:00,314 - BetterDealer - INFO - Starting round 7 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:15:00,576 - BetterDealer - INFO - Round finished
+2020-11-24 01:15:23,526 - BetterDealer - INFO - Starting round 8 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:15:23,607 - BetterDealer - INFO - Round finished
+2020-11-24 01:15:23,800 - BetterDealer - INFO - Starting round 8 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:15:24,437 - BetterDealer - INFO - Round finished
+2020-11-24 01:15:47,230 - BetterDealer - INFO - Starting round 9 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:15:47,306 - BetterDealer - INFO - Round finished
+2020-11-24 01:15:47,667 - BetterDealer - INFO - Starting round 9 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:15:47,920 - BetterDealer - INFO - Round finished
+2020-11-24 01:16:10,959 - BetterDealer - INFO - Starting round 10 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:16:11,222 - BetterDealer - INFO - Round finished
+2020-11-24 01:16:11,629 - BetterDealer - INFO - Starting round 10 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:16:11,703 - BetterDealer - INFO - Round finished
+2020-11-24 01:16:35,587 - BetterDealer - INFO - Starting round 11 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:16:35,674 - BetterDealer - INFO - Round finished
+2020-11-24 01:16:35,675 - BetterDealer - INFO - Starting round 11 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:16:35,933 - BetterDealer - INFO - Round finished
+2020-11-24 01:16:59,364 - BetterDealer - INFO - Starting round 12 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:16:59,594 - BetterDealer - INFO - Round finished
+2020-11-24 01:17:00,161 - BetterDealer - INFO - Starting round 12 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:17:00,411 - BetterDealer - INFO - Round finished
+2020-11-24 01:17:22,629 - BetterDealer - INFO - Starting round 13 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:17:22,704 - BetterDealer - INFO - Round finished
+2020-11-24 01:17:23,355 - BetterDealer - INFO - Starting round 13 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:17:23,432 - BetterDealer - INFO - Round finished
+2020-11-24 01:17:47,419 - BetterDealer - INFO - Starting round 14 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:17:47,500 - BetterDealer - INFO - Round finished
+2020-11-24 01:17:47,648 - BetterDealer - INFO - Starting round 14 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:17:47,914 - BetterDealer - INFO - Round finished
+2020-11-24 01:18:10,667 - BetterDealer - INFO - Starting round 15 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:18:10,730 - BetterDealer - INFO - Round finished
+2020-11-24 01:18:11,476 - BetterDealer - INFO - Starting round 15 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:18:11,550 - BetterDealer - INFO - Round finished
+2020-11-24 01:18:35,605 - BetterDealer - INFO - Starting round 16 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:18:38,596 - BetterDealer - INFO - Round finished
+2020-11-24 01:18:38,706 - BetterDealer - INFO - Starting round 16 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:18:40,569 - BetterDealer - INFO - Round finished
+2020-11-24 01:19:01,756 - BetterDealer - INFO - Starting round 17 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:19:03,487 - BetterDealer - INFO - Round finished
+2020-11-24 01:19:03,600 - BetterDealer - INFO - Starting round 17 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:19:05,367 - BetterDealer - INFO - Round finished
+2020-11-24 01:19:22,970 - BetterDealer - INFO - Starting round 18 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:19:24,845 - BetterDealer - INFO - Round finished
+2020-11-24 01:19:24,956 - BetterDealer - INFO - Starting round 18 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:19:26,946 - BetterDealer - INFO - Round finished
+2020-11-24 01:19:47,184 - BetterDealer - INFO - Starting round 19 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:19:49,079 - BetterDealer - INFO - Round finished
+2020-11-24 01:19:49,189 - BetterDealer - INFO - Starting round 19 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:19:51,085 - BetterDealer - INFO - Round finished
+2020-11-24 01:20:11,143 - BetterDealer - INFO - Starting round 20 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:20:12,921 - BetterDealer - INFO - Round finished
+2020-11-24 01:20:13,035 - BetterDealer - INFO - Starting round 20 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:20:14,841 - BetterDealer - INFO - Round finished
+2020-11-24 01:20:36,677 - BetterDealer - INFO - Starting round 21 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:20:38,546 - BetterDealer - INFO - Round finished
+2020-11-24 01:20:38,654 - BetterDealer - INFO - Starting round 21 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:20:40,497 - BetterDealer - INFO - Round finished
+2020-11-24 01:21:41,396 - BetterDealer - INFO - A new link has been added to the rounds: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:21:41,397 - BetterDealer - INFO - A new link has been added to the rounds: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:21:41,397 - BetterDealer - INFO - Starting round 1 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:21:50,269 - BetterDealer - INFO - Number of new cars in round: 45
+2020-11-24 01:21:50,269 - BetterDealer - INFO - Round finished
+2020-11-24 01:21:50,270 - BetterDealer - INFO - Starting round 1 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:21:58,057 - BetterDealer - INFO - Number of new cars in round: 42
+2020-11-24 01:21:58,058 - BetterDealer - INFO - Round finished
+2020-11-24 01:22:05,454 - BetterDealer - INFO - Starting round 2 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:22:06,078 - BetterDealer - INFO - Number of new cars in round: 3
+2020-11-24 01:22:06,078 - BetterDealer - INFO - Round finished
+2020-11-24 01:22:06,293 - BetterDealer - INFO - Starting round 2 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:22:06,546 - BetterDealer - INFO - Number of new cars in round: 1
+2020-11-24 01:22:06,546 - BetterDealer - INFO - Round finished
+2020-11-24 01:22:27,172 - BetterDealer - INFO - Starting round 3 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:22:27,779 - BetterDealer - INFO - Number of new cars in round: 3
+2020-11-24 01:22:27,779 - BetterDealer - INFO - Round finished
+2020-11-24 01:22:27,889 - BetterDealer - INFO - Starting round 3 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:22:27,967 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:22:27,967 - BetterDealer - INFO - Round finished
+2020-11-24 01:22:50,676 - BetterDealer - INFO - Starting round 4 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:22:50,761 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:22:50,762 - BetterDealer - INFO - Round finished
+2020-11-24 01:22:50,869 - BetterDealer - INFO - Starting round 4 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:22:51,843 - BetterDealer - INFO - Number of new cars in round: 5
+2020-11-24 01:22:51,843 - BetterDealer - INFO - Round finished
+2020-11-24 01:23:15,195 - BetterDealer - INFO - Starting round 5 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:23:15,272 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:23:15,272 - BetterDealer - INFO - Round finished
+2020-11-24 01:23:16,647 - BetterDealer - INFO - Starting round 5 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:23:17,093 - BetterDealer - INFO - Number of new cars in round: 2
+2020-11-24 01:23:17,094 - BetterDealer - INFO - Round finished
+2020-11-24 01:23:38,062 - BetterDealer - INFO - Starting round 6 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:23:38,139 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:23:38,140 - BetterDealer - INFO - Round finished
+2020-11-24 01:23:38,147 - BetterDealer - INFO - Starting round 6 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:23:38,385 - BetterDealer - INFO - Number of new cars in round: 1
+2020-11-24 01:23:38,385 - BetterDealer - INFO - Round finished
+2020-11-24 01:24:01,709 - BetterDealer - INFO - Starting round 7 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:24:02,162 - BetterDealer - INFO - Number of new cars in round: 2
+2020-11-24 01:24:02,162 - BetterDealer - INFO - Round finished
+2020-11-24 01:24:02,163 - BetterDealer - INFO - Starting round 7 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:24:02,239 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:24:02,239 - BetterDealer - INFO - Round finished
+2020-11-24 01:24:26,677 - BetterDealer - INFO - Starting round 8 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:24:26,760 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:24:26,760 - BetterDealer - INFO - Round finished
+2020-11-24 01:24:26,874 - BetterDealer - INFO - Starting round 8 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:24:27,132 - BetterDealer - INFO - Number of new cars in round: 1
+2020-11-24 01:24:27,133 - BetterDealer - INFO - Round finished
+2020-11-24 01:24:50,796 - BetterDealer - INFO - Starting round 9 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:24:50,868 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:24:50,869 - BetterDealer - INFO - Round finished
+2020-11-24 01:24:50,976 - BetterDealer - INFO - Starting round 9 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:24:51,051 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:24:51,053 - BetterDealer - INFO - Round finished
+2020-11-24 01:25:14,925 - BetterDealer - INFO - Starting round 10 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:25:15,024 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:25:15,025 - BetterDealer - INFO - Round finished
+2020-11-24 01:25:16,993 - BetterDealer - INFO - Starting round 10 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:25:17,428 - BetterDealer - INFO - Number of new cars in round: 2
+2020-11-24 01:25:17,429 - BetterDealer - INFO - Round finished
+2020-11-24 01:25:39,442 - BetterDealer - INFO - Starting round 11 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:25:39,522 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:25:39,523 - BetterDealer - INFO - Round finished
+2020-11-24 01:25:42,144 - BetterDealer - INFO - Starting round 11 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:25:42,390 - BetterDealer - INFO - Number of new cars in round: 1
+2020-11-24 01:25:42,391 - BetterDealer - INFO - Round finished
+2020-11-24 01:26:03,148 - BetterDealer - INFO - Starting round 12 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:26:03,239 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:26:03,239 - BetterDealer - INFO - Round finished
+2020-11-24 01:26:03,385 - BetterDealer - INFO - Starting round 12 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:26:03,465 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:26:03,465 - BetterDealer - INFO - Round finished
+2020-11-24 01:26:27,419 - BetterDealer - INFO - Starting round 13 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:26:27,495 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:26:27,495 - BetterDealer - INFO - Round finished
+2020-11-24 01:26:27,500 - BetterDealer - INFO - Starting round 13 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:26:27,722 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:26:27,722 - BetterDealer - INFO - Round finished
+2020-11-24 01:26:51,378 - BetterDealer - INFO - Starting round 14 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:26:51,460 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:26:51,460 - BetterDealer - INFO - Round finished
+2020-11-24 01:26:52,467 - BetterDealer - INFO - Starting round 14 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:26:52,541 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:26:52,542 - BetterDealer - INFO - Round finished
+2020-11-24 01:27:18,057 - BetterDealer - INFO - Starting round 15 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:27:18,131 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:27:18,131 - BetterDealer - INFO - Round finished
+2020-11-24 01:27:18,246 - BetterDealer - INFO - Starting round 15 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:27:18,337 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:27:18,338 - BetterDealer - INFO - Round finished
+2020-11-24 01:27:39,517 - BetterDealer - INFO - Starting round 16 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:27:41,915 - BetterDealer - INFO - Number of new cars in round: 1
+2020-11-24 01:27:41,915 - BetterDealer - INFO - Round finished
+2020-11-24 01:27:41,928 - BetterDealer - INFO - Starting round 16 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:27:41,999 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:27:41,999 - BetterDealer - INFO - Round finished
+2020-11-24 01:28:03,476 - BetterDealer - INFO - Starting round 17 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:28:03,549 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:28:03,550 - BetterDealer - INFO - Round finished
+2020-11-24 01:28:07,934 - BetterDealer - INFO - Starting round 17 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:28:08,013 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:28:08,013 - BetterDealer - INFO - Round finished
+2020-11-24 01:28:27,295 - BetterDealer - INFO - Starting round 18 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:28:27,381 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:28:27,381 - BetterDealer - INFO - Round finished
+2020-11-24 01:28:27,655 - BetterDealer - INFO - Starting round 18 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:28:27,725 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:28:27,725 - BetterDealer - INFO - Round finished
+2020-11-24 01:28:51,339 - BetterDealer - INFO - Starting round 19 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:28:53,439 - BetterDealer - INFO - Number of new cars in round: 1
+2020-11-24 01:28:53,439 - BetterDealer - INFO - Round finished
+2020-11-24 01:28:53,549 - BetterDealer - INFO - Starting round 19 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:28:53,623 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:28:53,623 - BetterDealer - INFO - Round finished
+2020-11-24 01:29:15,291 - BetterDealer - INFO - Starting round 20 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:29:15,377 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:29:15,377 - BetterDealer - INFO - Round finished
+2020-11-24 01:29:15,487 - BetterDealer - INFO - Starting round 20 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:29:15,556 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:29:15,556 - BetterDealer - INFO - Round finished
+2020-11-24 01:29:39,357 - BetterDealer - INFO - Starting round 21 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:29:39,430 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:29:39,431 - BetterDealer - INFO - Round finished
+2020-11-24 01:29:39,580 - BetterDealer - INFO - Starting round 21 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:29:39,657 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:29:39,657 - BetterDealer - INFO - Round finished
+2020-11-24 01:30:03,392 - BetterDealer - INFO - Starting round 22 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:30:03,620 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:30:03,620 - BetterDealer - INFO - Round finished
+2020-11-24 01:30:03,740 - BetterDealer - INFO - Starting round 22 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:30:03,805 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:30:03,805 - BetterDealer - INFO - Round finished
+2020-11-24 01:30:27,644 - BetterDealer - INFO - Starting round 23 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:30:27,714 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:30:27,714 - BetterDealer - INFO - Round finished
+2020-11-24 01:30:29,779 - BetterDealer - INFO - Starting round 23 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:30:29,846 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:30:29,846 - BetterDealer - INFO - Round finished
+2020-11-24 01:30:51,257 - BetterDealer - INFO - Starting round 24 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:30:51,330 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:30:51,331 - BetterDealer - INFO - Round finished
+2020-11-24 01:30:51,343 - BetterDealer - INFO - Starting round 24 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:30:51,409 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:30:51,409 - BetterDealer - INFO - Round finished
+2020-11-24 01:31:14,745 - BetterDealer - INFO - Starting round 25 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:31:14,812 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:31:14,812 - BetterDealer - INFO - Round finished
+2020-11-24 01:31:14,825 - BetterDealer - INFO - Starting round 25 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:31:14,890 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:31:14,890 - BetterDealer - INFO - Round finished
+2020-11-24 01:31:38,031 - BetterDealer - INFO - Starting round 26 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:31:38,104 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:31:38,104 - BetterDealer - INFO - Round finished
+2020-11-24 01:31:38,104 - BetterDealer - INFO - Starting round 26 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:31:38,163 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:31:38,163 - BetterDealer - INFO - Round finished
+2020-11-24 01:32:02,415 - BetterDealer - INFO - Starting round 27 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:32:02,511 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:32:02,512 - BetterDealer - INFO - Round finished
+2020-11-24 01:32:07,088 - BetterDealer - INFO - Starting round 27 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:32:07,163 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:32:07,163 - BetterDealer - INFO - Round finished
+2020-11-24 01:32:26,631 - BetterDealer - INFO - Starting round 28 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:32:26,714 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:32:26,715 - BetterDealer - INFO - Round finished
+2020-11-24 01:32:33,554 - BetterDealer - INFO - Starting round 28 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:32:33,635 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:32:33,635 - BetterDealer - INFO - Round finished
+2020-11-24 01:32:50,044 - BetterDealer - INFO - Starting round 29 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/mini-cooper/k0c174l1700184
+2020-11-24 01:32:50,138 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:32:50,138 - BetterDealer - INFO - Round finished
+2020-11-24 01:32:50,259 - BetterDealer - INFO - Starting round 29 of collection for: https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/honda-civic/k0c174l1700184
+2020-11-24 01:32:50,339 - BetterDealer - INFO - Number of new cars in round: 0
+2020-11-24 01:32:50,339 - BetterDealer - INFO - Round finished

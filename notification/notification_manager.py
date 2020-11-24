@@ -1,7 +1,11 @@
 import smtplib
-# import notification.email_config
 import config
-import traceback
+# import traceback
+import logging
+
+
+# we get the logger
+logger = logging.getLogger("BetterDealer")
 
 
 def sendEmailNotification(ad_title, price, link):
@@ -25,7 +29,7 @@ def sendEmailNotification(ad_title, price, link):
         print("Notification email sent succesfully!")
     except Exception:
         print("Failed to Send Email Notification")
-        traceback.print_exc()
+        logger.exception("Failed to Send Email Notification: ")
 
 
 # sends an email notification with all the new cars of the round
@@ -60,5 +64,4 @@ def sendEmailNotificationM(ad_titles, prices, links):
         server.quit()
         print("Notification email sent succesfully!")
     except Exception:
-        print("Failed to Send Email Notification")
-        traceback.print_exc()
+        logger.exception("Failed to Send Email Notification")

@@ -3,6 +3,7 @@ from dataExtraction.dataExtraction.spiders.kijiji_spider import KijijiSpider
 from notification.notification_manager import *
 from scrapy.crawler import CrawlerRunner
 import dataExtraction.dataCollector as collector
+# import database.database as db
 
 
 def run_spider():
@@ -22,4 +23,5 @@ def run_spider():
 print("Starting process...")
 run_spider()
 reactor.run()
+
 

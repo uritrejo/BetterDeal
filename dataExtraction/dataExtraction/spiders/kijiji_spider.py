@@ -3,8 +3,10 @@ import database.database as db
 import dataExtraction.dataCollector as collector
 import config
 import traceback
+import logging
 
-
+# we get the logger
+logger = logging.getLogger("BetterDealer")
 
 class KijijiSpider(scrapy.Spider):
 
@@ -37,8 +39,11 @@ class KijijiSpider(scrapy.Spider):
 
         currentRequestURL = response.request.url
         collector.updateSearchesCount(self.start_urls)
-        print("Starting round ", collector.searchRounds[currentRequestURL],
-              " of collection for: ", currentRequestURL)
+        # print("Starting round ", collector.searchRounds[currentRequestURL],
+        #       " of collection for: ", currentRequestURL)
+
+        logger.info("Starting round " + str(collector.searchRounds[currentRequestURL]) +
+              " of collection for: " + str(currentRequestURL))
 
         extractedCars = response.css('.title .title::text').extract()  # gets the car add titles using css selectors
         extractedPrices = response.css('.price::text').extract()  # gets the prices
@@ -50,7 +55,7 @@ class KijijiSpider(scrapy.Spider):
         strippedExtractedPrices = []
         strippedExtractedLinks = []
 
-        print("Lengths of lists: ", len(extractedCars), len(extractedPrices), len(extractedLinks))
+        # print("Lengths of lists: ", len(extractedCars), len(extractedPrices), len(extractedLinks))
 
         # first we strip every string in all lists to get the list of prices aligned with their posting and link
         for car in extractedCars:
@@ -77,9 +82,11 @@ class KijijiSpider(scrapy.Spider):
             collector.processNewData(currentRequestURL,
                                      strippedExtractedCars, strippedExtractedPrices, strippedExtractedLinks)
         except Exception:
-            print("An exception has happened. current round of collection failed.",
-                  "The traceback will be printed following this message.",
-                  "Collection rounds are going to continue despite failure.")
-            traceback.print_exc()
+            # print("An exception has happened. current round of collection failed.",
+            #       "The traceback will be printed following this message.",
+            #       "Collection rounds are going to continue despite failure.")
+            # traceback.print_exc()
+            logger.exception("Exception happened at Kijiji_Spyder")
 
-        print("Round Finished.")
+        # print("Round Finished.")
+        logger.info("Round finished")

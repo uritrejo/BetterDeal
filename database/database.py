@@ -1,6 +1,7 @@
 import uuid
 import pyrebase
 import traceback
+import logging
 
 
 firebaseConfig = {
@@ -14,6 +15,9 @@ firebaseConfig = {
     'measurementId': "G-J3PE7FMQ4M"
 }
 
+
+# we get the logger
+logger = logging.getLogger("BetterDealer")
 
 '''
     Documentation on how to use pyrebase available at:
@@ -31,8 +35,9 @@ def retrieveSearches():
         for search in searches.each():
             links.append(search.val()['Link'])
     except:
-        print("Error retrieving searches, skipping round of collection...")
-        traceback.print_exc()
+        # print("Error retrieving searches, skipping round of collection...")
+        logger.exception("Error retrieving searches: ")
+        # maybe traceback.print_ex...
         # here you could also save the last of the searches in case it can't retrieve them
         # but at the same time, if this fails, probably its the connection and everything is failing
     # later you could do return links, models
@@ -60,8 +65,7 @@ def retrieveCars():
             prices.append(search.val()['Price'])
             dates.append(search.val()['Date'])
     except:
-        print("Error retrieving cars from the database.")
-        traceback.print_exc()
+        logger.exception("Error retrieving cars from the database:")
     return links, models, prices, dates
 
 
@@ -75,8 +79,7 @@ def addNewSearch(link, model):
         }
         db.child('Searches').push(search)
     except:
-        print("Error adding search.")
-        traceback.print_exc()
+        logger.exception("Error adding search.")
 
 
 def addNewCar(car, link, price, date):
@@ -91,8 +94,7 @@ def addNewCar(car, link, price, date):
         }
         db.child('Cars').push(new_car)
     except:
-        print("Error adding new car.")
-        traceback.print_exc()
+        logger.exception("Error adding car.")
 
 
 def addNewCars(cars, links, prices, dates):
@@ -114,8 +116,7 @@ def addNewCars(cars, links, prices, dates):
         print(result)
         print("length json = ", str(len(str(dataJSON))), ", length result = ", str(len(str(result))))
     except:
-        print("Error adding new cars.")
-        traceback.print_exc()
+        logger.exception("Error adding cars.")
 
 
 # This function is only to be used in order to clear test data from the database online
@@ -125,7 +126,6 @@ def deleteAllCars():
         fire = pyrebase.initialize_app(firebaseConfig)
         db = fire.database()
         db.child("Cars").remove()
-
     except:
         print("Error deleting all cars.")
         traceback.print_exc()
