@@ -8,14 +8,19 @@ import logging
 # we get the logger
 logger = logging.getLogger("BetterDealer")
 
+
 class KijijiSpider(scrapy.Spider):
 
     name = "kijiji"
-    # start_urls = [  # for testing
-    #     'https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/gmc-yukon/2016__/k0c174l1700184a68', # GMC Yukon > 2016
-    #     'https://www.kijiji.ca/b-cars-trucks/ottawa-gatineau-area/dodge-ram-rebel/2019__/k0c174l1700184a68' # Dodge RAM Rebel 2019-2020]  # for testing
-    #     ]
-    start_urls = db.retrieveSearches()
+    # start_urls = db.retrieveSearches()
+
+    urls_to_scrape = []
+
+    # this will be called to get the requests to make each round
+    def start_requests(self):
+        self.urls_to_scrape = db.retrieveSearches()
+        for url in self.urls_to_scrape:
+            yield scrapy.Request(url, dont_filter=True)
 
     # needed to bypass initial request issues
     custom_settings = {
@@ -30,17 +35,9 @@ class KijijiSpider(scrapy.Spider):
 
     def parse(self, response):
 
-        '''
-            I can make a dictionary to keep count for each car individually, otherwise, that
-            is gonna be a problem whenever I'm adding new cars on the go, it's gonna email bomb
-            da fok outta every email.
-            response.request.url has the link, from there i should be able to do it
-        '''
-
         currentRequestURL = response.request.url
-        collector.updateSearchesCount(self.start_urls)
-        # print("Starting round ", collector.searchRounds[currentRequestURL],
-        #       " of collection for: ", currentRequestURL)
+        # collector.updateSearchesCount(self.start_urls)
+        collector.updateSearchesCount(self.urls_to_scrape)
 
         logger.info("Starting round " + str(collector.searchRounds[currentRequestURL]) +
               " of collection for: " + str(currentRequestURL))

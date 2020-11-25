@@ -33,7 +33,7 @@ ad_index = -1
 logger = logging.getLogger("BetterDealer")
 logger.setLevel(logging.DEBUG)
 handler = logging.handlers.RotatingFileHandler(
-    "logsUI.log", maxBytes=(1048576*5), backupCount=7
+    "logsServer.log", maxBytes=(1048576*5), backupCount=7
 )
 formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 handler.setFormatter(formatter)
